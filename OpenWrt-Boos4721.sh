@@ -153,14 +153,14 @@ CONFIG_PACKAGE_AdGuardHome=y
 EOF
 
 # ShadowsocksR插件:
-cat >> .config <<EOF
+#cat >> .config <<EOF
 #CONFIG_PACKAGE_luci-app-ssr-plus=n
 #CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=n
 #CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=n
 #CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=n
 #CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=n
 #CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=n
-EOF
+#EOF
 
 # Passwall插件:
 cat >> .config <<EOF
@@ -195,24 +195,24 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin=y
 EOF
 
 # Passwall2插件:
-cat >> .config <<EOF
+#cat >> .config <<EOF
 #  passwall2
-CONFIG_PACKAGE_luci-app-passwall2=y
-CONFIG_PACKAGE_luci-app-passwall2_Transparent_Proxy=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Brook=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Hysteria=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_IPv6_Nat=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_NaiveProxy=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Libev_Client=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Libev_Server=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Client=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Server=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Client=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Server=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Simple_Obfs=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_V2ray_Plugin=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Xray=y
-EOF
+#CONFIG_PACKAGE_luci-app-passwall2=y
+#CONFIG_PACKAGE_luci-app-passwall2_Transparent_Proxy=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Brook=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Hysteria=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_IPv6_Nat=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_NaiveProxy=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Libev_Client=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Libev_Server=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Client=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Server=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Client=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Server=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Simple_Obfs=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_V2ray_Plugin=y
+#CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Xray=y
+#EOF
 
 # 常用LuCI插件:
 cat >> .config <<EOF
@@ -228,13 +228,13 @@ CONFIG_PACKAGE_luci-app-autoreboot=y #定时重启
 #CONFIG_PACKAGE_luci-app-upnp=y #通用即插即用UPnP(端口自动转发)
 #CONFIG_PACKAGE_luci-app-accesscontrol=y #上网时间控制
 #CONFIG_PACKAGE_luci-app-wol=y #网络唤醒
-CONFIG_PACKAGE_luci-app-frpc=y #Frp内网穿透
+#CONFIG_PACKAGE_luci-app-frpc=y #Frp内网穿透
 #CONFIG_PACKAGE_luci-app-nlbwmon=n #宽带流量监控
 #CONFIG_PACKAGE_luci-app-wrtbwmon=y
 CONFIG_PACKAGE_automount=y
 CONFIG_PACKAGE_coreutils-base64=y
 CONFIG_PACKAGE_luci-app-commands=y
-CONFIG_PACKAGE_luci-app-jd-dailybonus=y
+#CONFIG_PACKAGE_luci-app-jd-dailybonus=y
 CONFIG_PACKAGE_luci-app-nps=y
 #CONFIG_PACKAGE_luci-app-watchcat=y
 CONFIG_PACKAGE_luci-app-zerotier=y
@@ -249,7 +249,7 @@ CONFIG_PACKAGE_luci-app-zerotier=y
 #CONFIG_PACKAGE_luci-app-zerotier is not set #zerotier内网穿透
 #CONFIG_PACKAGE_luci-app-hd-idle is not set #磁盘休眠
 #CONFIG_PACKAGE_luci-app-wrtbwmon is not set #实时流量监测
-#CONFIG_PACKAGE_luci-app-unblockmusic=y #解锁网易云灰色歌曲
+CONFIG_PACKAGE_luci-app-unblockmusic=y #解锁网易云灰色歌曲
 CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
 CONFIG_PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_NodeJS=y
 CONFIG_PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_Go=y
