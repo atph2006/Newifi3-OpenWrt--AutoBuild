@@ -127,13 +127,12 @@ EOF
 cat >> .config <<EOF
 CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-smartdns=y
-CONFIG_PACKAGE_luci-app-vlmcsd=n #KMS激活服务器
-CONFIG_PACKAGE_luci-app-autoreboot=y #定时重启
+CONFIG_PACKAGE_luci-app-vlmcsd=y
+CONFIG_PACKAGE_luci-app-autoreboot=y
 CONFIG_PACKAGE_automount=y
 CONFIG_PACKAGE_coreutils-base64=y
 CONFIG_PACKAGE_luci-app-commands=y
 CONFIG_PACKAGE_luci-app-zerotier=y
-CONFIG_PACKAGE_luci-app-zerotier is not set #zerotier内网穿透
 EOF
 
 # LuCI主题:
