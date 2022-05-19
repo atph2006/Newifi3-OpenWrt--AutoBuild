@@ -35,7 +35,7 @@ git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adg
 #git clone https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-smartdns.git package/luci-app-smartdns
 #git clone https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-openclash package/luci-app-openclash
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
-git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 
 
 # 下载自定义软件
@@ -76,9 +76,9 @@ touch ./.config
 # 
 
 # 选择内核:
-cat >> .config <<EOF
+#cat >> .config <<EOF
 #CONFIG_LINUX_5_4=y
-EOF
+#EOF
 
 # 编译固件:
 cat >> .config <<EOF
