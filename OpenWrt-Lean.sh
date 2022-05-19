@@ -76,9 +76,6 @@ touch ./.config
 # 
 
 # 选择内核:
-#cat >> .config <<EOF
-#CONFIG_LINUX_5_4=y
-#EOF
 
 # 编译固件:
 cat >> .config <<EOF
@@ -86,24 +83,6 @@ CONFIG_TARGET_ramips=y
 CONFIG_TARGET_ramips_mt7621=y
 CONFIG_TARGET_ramips_mt7621_DEVICE_d-team_newifi-d2=y
 EOF
-
-# 无线驱动(开源)
-#cat >> .config <<EOF
-#CONFIG_PACKAGE_kmod-mt76=y
-#CONFIG_PACKAGE_wireless-regdb=y
-#CONFIG_PACKAGE_kmod-cfg80211=y
-#CONFIG_PACKAGE_kmod-mac80211=y
-#CONFIG_PACKAGE_MAC80211_DEBUGFS=y
-#CONFIG_PACKAGE_MAC80211_MESH=y
-#use opensource wifi driver
-#CONFIG_PACKAGE_kmod-mt7603=y
-#CONFIG_PACKAGE_kmod-mt7603e=n
-#CONFIG_PACKAGE_kmod-mt76x2=y
-#CONFIG_PACKAGE_kmod-mt76x2-common=y
-#CONFIG_PACKAGE_kmod-mt76x2e=n
-#CONFIG_PACKAGE_wpad-openssl=y
-#CONFIG_PACKAGE_wpa-supplicant=y
-#EOF
 
 # IPv6支持:
 cat >> .config <<EOF
@@ -115,49 +94,13 @@ CONFIG_PACKAGE_ip6tables=y
 CONFIG_PACKAGE_iptables-mod-extra=y
 EOF
 
-# 多文件系统支持:
-# cat >> .config <<EOF
-# CONFIG_PACKAGE_kmod-fs-nfs=y
-# CONFIG_PACKAGE_kmod-fs-nfs-common=y
-# CONFIG_PACKAGE_kmod-fs-nfs-v3=y
-# CONFIG_PACKAGE_kmod-fs-nfs-v4=y
-# CONFIG_PACKAGE_kmod-fs-ntfs=y
-# CONFIG_PACKAGE_kmod-fs-squashfs=y
-# EOF
-
-# USB3.0支持:
-# cat >> .config <<EOF
-# CONFIG_PACKAGE_kmod-usb-ohci=y
-# CONFIG_PACKAGE_kmod-usb-ohci-pci=y
-# CONFIG_PACKAGE_kmod-usb2=y
-# CONFIG_PACKAGE_kmod-usb2-pci=y
-# CONFIG_PACKAGE_kmod-usb3=y
-# EOF
-
 # 第三方插件选择:
 cat >> .config <<EOF
-#CONFIG_PACKAGE_luci-app-oaf=y #应用过滤
-#CONFIG_PACKAGE_luci-app-clash=y
-#CONFIG_PACKAGE_luci-app-openclash=y #OpenClash
-#CONFIG_PACKAGE_luci-app-serverchan=y #微信推送
-#CONFIG_PACKAGE_luci-app-eqos=y #IP限速
 CONFIG_PACKAGE_luci-app-adguardhome=y #ADguardhome
-#CONFIG_PACKAGE_AdGuardHome=y
-EOF
-
-# ShadowsocksR插件:
-cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-ssr-plus=n
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=n
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=n
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=n
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=n
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=n
 EOF
 
 # Passwall插件:
 cat >> .config <<EOF
-#  passwall
 CONFIG_PACKAGE_luci-app-passwall=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG=y
@@ -182,86 +125,22 @@ EOF
 
 # 常用LuCI插件:
 cat >> .config <<EOF
-#CONFIG_PACKAGE_luci-app-mtwifi=n
 CONFIG_PACKAGE_luci-app-ttyd=y
-#CONFIG_PACKAGE_luci-app-easymesh=y
 CONFIG_PACKAGE_luci-app-smartdns=y
-#CONFIG_PACKAGE_luci-app-webadmin=n #Web管理页面设置
-#CONFIG_PACKAGE_luci-app-ddns=y #DDNS服务
 CONFIG_PACKAGE_luci-app-vlmcsd=n #KMS激活服务器
-#CONFIG_PACKAGE_luci-app-filetransfer=y #系统-文件传输
 CONFIG_PACKAGE_luci-app-autoreboot=y #定时重启
-#CONFIG_PACKAGE_luci-app-upnp=y #通用即插即用UPnP(端口自动转发)
-#CONFIG_PACKAGE_luci-app-accesscontrol=y #上网时间控制
-#CONFIG_PACKAGE_luci-app-wol=y #网络唤醒
-#CONFIG_PACKAGE_luci-app-frpc=y #Frp内网穿透
-#CONFIG_PACKAGE_luci-app-nlbwmon=n #宽带流量监控
-#CONFIG_PACKAGE_luci-app-wrtbwmon=y
 CONFIG_PACKAGE_automount=y
 CONFIG_PACKAGE_coreutils-base64=y
 CONFIG_PACKAGE_luci-app-commands=y
-#CONFIG_PACKAGE_luci-app-jd-dailybonus=y
-#CONFIG_PACKAGE_luci-app-nps=y
-#CONFIG_PACKAGE_luci-app-watchcat=y
 CONFIG_PACKAGE_luci-app-zerotier=y
-#CONFIG_PACKAGE_luci-app-sfe=n #高通开源的 Shortcut FE 转发加速引擎
-#CONFIG_PACKAGE_luci-app-flowoffload=y #开源 Linux Flow Offload 驱动
-#CONFIG_PACKAGE_luci-app-haproxy-tcp is not set #Haproxy负载均衡
-#CONFIG_PACKAGE_luci-app-diskman is not set #磁盘管理磁盘信息
-#CONFIG_PACKAGE_luci-app-transmission is not set #TR离线下载
-#CONFIG_PACKAGE_luci-app-qbittorrent is not set #QB离线下载
-#CONFIG_PACKAGE_luci-app-amule is not set #电驴离线下载
-#CONFIG_PACKAGE_luci-app-xlnetacc is not set #迅雷快鸟
 CONFIG_PACKAGE_luci-app-zerotier is not set #zerotier内网穿透
-#CONFIG_PACKAGE_luci-app-hd-idle is not set #磁盘休眠
-#CONFIG_PACKAGE_luci-app-wrtbwmon is not set #实时流量监测
-#CONFIG_PACKAGE_luci-app-unblockmusic=y #解锁网易云灰色歌曲
-#CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
-#CONFIG_PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_NodeJS=y
-#CONFIG_PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_Go=y
-# CONFIG_PACKAGE_luci-app-airplay2 is not set #Apple AirPlay2音频接收服务器
-# CONFIG_PACKAGE_luci-app-music-remote-center is not set #PCHiFi数字转盘遥控
-# CONFIG_PACKAGE_luci-app-usb-printer is not set #USB打印机
-#CONFIG_PACKAGE_luci-app-sqm=y #SQM智能队列管理
-#
-# VPN相关插件(禁用):
-#
-# CONFIG_PACKAGE_luci-app-v2ray-server is not set #V2ray服务器
-# CONFIG_PACKAGE_luci-app-pptp-server is not set #PPTP VPN 服务器
-# CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set #ipsec VPN服务
-# CONFIG_PACKAGE_luci-app-openvpn-server is not set #openvpn服务
-# CONFIG_PACKAGE_luci-app-softethervpn is not set #SoftEtherVPN服务器
-#
-# 文件共享相关(禁用):
-#
-# CONFIG_PACKAGE_luci-app-minidlna is not set #miniDLNA服务
-# CONFIG_PACKAGE_luci-app-vsftpd is not set #FTP 服务器
-# CONFIG_PACKAGE_luci-app-samba is not set #网络共享
-# CONFIG_PACKAGE_autosamba is not set #网络共享
-# CONFIG_PACKAGE_samba36-server is not set #网络共享
 EOF
 
 # LuCI主题:
 cat >> .config <<EOF
 CONFIG_PACKAGE_luci-theme-atmaterial=y
-#CONFIG_PACKAGE_luci-theme-bootstrap=y
-#CONFIG_PACKAGE_luci-theme-argon_new=y
-#CONFIG_PACKAGE_luci-theme-argon
-#CONFIG_PACKAGE_luci-theme-netgear=y
-#CONFIG_PACKAGE_luci-theme-edge=y
 CONFIG_PACKAGE_luci-theme-material=y
 EOF
-
-# 常用软件包:
-#cat >> .config <<EOF
-#CONFIG_PACKAGE_curl=y
-#CONFIG_PACKAGE_htop=y
-#CONFIG_PACKAGE_nano=y
-#CONFIG_PACKAGE_screen=y
-#CONFIG_PACKAGE_tree=y
-#CONFIG_PACKAGE_vim-fuller=y
-#CONFIG_PACKAGE_wget=y
-#EOF
 
 # 其他软件包:
 cat >> .config <<EOF
