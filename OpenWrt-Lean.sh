@@ -3,8 +3,8 @@
 cd openwrt
 
 # 安装额外依赖软件包
-# sudo -E apt-get -y install rename
-#ln -s ../../diy ./package/openwrt-packages
+sudo -E apt-get -y install rename
+ln -s ../../diy ./package/openwrt-packages
 
 # 更新feeds文件
 #sed -i 's@#src-git helloworld@src-git helloworl#d@g' feeds.conf.default #启用helloworld
@@ -42,18 +42,18 @@ git clone https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-pas
 # 下载自定义软件
 #svn co https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-clash ../package/luci-app-clash
 #svn co https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-openclash ../package/luci-app-openclash
-svn co https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-passwall ../package/luci-app-passwall
+#svn co https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-passwall ../package/luci-app-passwall
 
 # 替换更新插件
-rm -rf package/openwrt-packages/luci-app-passwall && svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-app-passwall package/openwrt-packages/luci-app-passwall
+#rm -rf package/openwrt-packages/luci-app-passwall && svn co svn co https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-passwall package/openwrt-packages/luci-app-passwall
 #rm -rf package/openwrt-packages/luci-app-ssr-plus && svn co https://github.com/fw876/helloworld package/openwrt-packages/helloworld
 #rm -rf package/openwrt-packages/adguardhome && svn co https://github.com/Lienol/openwrt/tree/dev-19.07/package/diy/adguardhome package/openwrt-packages/adguardhome
 #rm -rf package/openwrt-packages/luci-app-adguardhome && svn co https://github.com/kongfl888/luci-app-adguardhome package/openwrt-packages/luci-app-adguardhome
 #rm -rf package/openwrt-packages/luci-app-clash && svn co https://github.com/frainzy1477/luci-app-clash package/openwrt-packages/luci-app-clash
 
 # 添加passwall依赖库
-#git clone https://github.com/kenzok8/small package/small
-#svn co https://github.com/xiaorouji/openwrt-passwall package/passwall
+git clone https://github.com/kenzok8/small package/small
+svn co https://github.com/xiaorouji/openwrt-passwall package/passwall
 
 # 替换更新haproxy默认版本
 #rm -rf feeds/packages/net/haproxy && svn co https://github.com/Lienol/openwrt-packages/net/haproxy feeds/packages/net/haproxy
@@ -103,19 +103,12 @@ EOF
 
 # Passwall插件:
 cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-passwall=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook=y
+CONFIG_PACKAGE_luci-app-passwall=y					  
+CONFIG_PACKAGE_luci-app-passwall_Transparent_Proxy=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Haproxy=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Hysteria=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Kcptun=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_NaiveProxy=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_PDNSD=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Client=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Server=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Client=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Server=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple_Obfs=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=y
@@ -127,14 +120,23 @@ EOF
 
 # 常用LuCI插件:
 cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-ttyd=y
-CONFIG_PACKAGE_luci-app-smartdns=y
+#CONFIG_PACKAGE_luci-app-ttyd=y
+CONFIG_PACKAGE_vlmcsd=y	
+CONFIG_DEFAULT_luci-app-vlmcsd=y
 CONFIG_PACKAGE_luci-app-vlmcsd=y
+CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
 CONFIG_PACKAGE_luci-app-autoreboot=y
 CONFIG_PACKAGE_automount=y
 CONFIG_PACKAGE_coreutils-base64=y
 CONFIG_PACKAGE_luci-app-commands=y
+CONFIG_PACKAGE_zerotier=y
+CONFIG_DEFAULT_luci-app-zerotier=y
 CONFIG_PACKAGE_luci-app-zerotier=y
+CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
+CONFIG_PACKAGE_smartdns=y
+CONFIG_PACKAGE_luci-app-smartdns=y
+CONFIG_PACKAGE_luci-i18n-smartdns-zh-cn=y
 EOF
 
 # LuCI主题:
