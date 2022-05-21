@@ -1,9 +1,10 @@
+
 name: Newifi3-Lean
 
 on:
 # 定时触发
-#  schedule:
-#    - cron: 0 19 * * 5
+  schedule:
+    - cron: 0 19 * * 5
 
 # release触发
 #  release:
@@ -21,6 +22,7 @@ on:
 # config触发
 #  paths:
 #    - '.config'
+
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
