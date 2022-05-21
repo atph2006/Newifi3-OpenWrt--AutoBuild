@@ -3,8 +3,8 @@
 cd openwrt
 
 # 安装额外依赖软件包
-sudo -E apt-get -y install rename
-ln -s ../../diy ./package/openwrt-packages
+# sudo -E apt-get -y install rename
+# ln -s ../../diy ./package/openwrt-packages
 
 # 更新feeds文件
 #sed -i 's@#src-git helloworld@src-git helloworl#d@g' feeds.conf.default #启用helloworld
