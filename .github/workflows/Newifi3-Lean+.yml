@@ -1,4 +1,4 @@
-name: Newifi3-Lean
+name: Newifi3-Lean+
 
 on:
   repository_dispatch:
